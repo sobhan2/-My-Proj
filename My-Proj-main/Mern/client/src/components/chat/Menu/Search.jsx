@@ -4,10 +4,11 @@ import { InputBase } from '@mui/material';
 import styled from "@emotion/styled";
 
 const Component = styled(Box)`
-    background: #fff;
+    background: #343434;
     height: 45px;
     border-bottom: 1px solid #2f2f2f;
-
+    margin-left: 10px;
+    
 `;
 
 const Icon = styled(Box)`
@@ -23,13 +24,13 @@ const Icon = styled(Box)`
 const Wrapper = styled(Box)`
     background-color: #f0f2f5;
     position: relative;
-    margin: 0 10px;
+    
     width: calc(100% - 30px - 65px);
     height: calc(100% - 16px);
     display: flex;
     align-items: center;
     padding-left: 50px;
-    margin-top: 10px;
+    
     margin-left: 30px;
     border-radius: 5px;
 `;
@@ -41,6 +42,7 @@ const InputField = styled(InputBase)`
     font-size: 16px;
     width: 73%;
     min-width: 300px;
+    
    
     padding: 16px;
     height: 15px;

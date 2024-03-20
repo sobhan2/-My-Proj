@@ -34,7 +34,8 @@ const ChatDialog = () => {
         <Dialog
             open={true} PaperProps={{sx: dialogStyle}} hideBackdrop={true} maxWidth={'md'}
         >
-            <p>Jai shree Radhe</p>
+            <Box style={{background:"#888888"}}>
+            <p style={{color:"#f2f5f6", fontSize:"36px", fontWeight:"800"}}>FireDWeller</p>
 
             <Components>
                 <LeftComponent>
@@ -44,7 +45,7 @@ const ChatDialog = () => {
                     <EmptyChat />
                 </RightComponent>
             </Components>
-
+            </Box>
         </Dialog>
     );
 }

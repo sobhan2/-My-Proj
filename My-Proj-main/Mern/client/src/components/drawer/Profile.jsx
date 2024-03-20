@@ -8,7 +8,7 @@ const Profile = () => {
             <>
                 
                 <Box>
-                    Typo
+                    
                 </Box>
                 <Box></Box>
                 <Box></Box>

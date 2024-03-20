@@ -51,15 +51,16 @@ const Header = () => {
     const toggleDrawer = () => {
         setOpenDrawer(true);
     };
-
+    
     return (
+        
         <>
             <Component sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                 <span>{account.name}</span>
 
                 <Wrapper>
                     <MessageIcon />
-                    <HeaderMenu />
+                    <HeaderMenu setOpenDrawer={setOpenDrawer} />
 
                 </Wrapper>
                 <Image src={account.picture} alt="dp"  onClick={() => toggleDrawer()} />
