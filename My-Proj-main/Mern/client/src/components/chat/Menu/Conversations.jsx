@@ -1,14 +1,22 @@
 
-import { useEffect , useState} from "react";
+import { useEffect , useState, useContext} from "react";
 
 import { getUsers } from "../../../service/api";
-import { Box } from "@mui/material";
+import { Box , styled, Divider} from "@mui/material";
+import { AccountContext } from "../../../context/AccountProvider";
 
 import Conversation from "./Conversation";
+
+const Component = styled(Box)`
+    height: 81vh;
+    overflow: overlay;
+`
 
 const Conversations = () => {
 
     const  [users, setUsers] = useState([]);
+
+    const { account } = useContext(AccountContext) ;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -18,14 +26,24 @@ const Conversations = () => {
         fetchData();
     }, []);
 
+    const styledDivider = styled(Divider)`
+        margin: 0 0 0 70px;
+        background: #343434;
+    `
+    
+
     return (
-       <Box>
+       <Component>
         {
             users.map(user => (
+                user.sub !== account.sub &&
+                <>
                 <Conversation  user={user} />
+                <styledDivider />
+                </>
             ))
         }
-       </Box>
+       </Component>
     )
 }
 
