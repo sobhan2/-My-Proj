@@ -27,7 +27,7 @@ const Messenger = () => {
     const {account} = useContext(AccountContext)
 
     return(
-        <Component>
+        <Component style={{overflowY: "scroll"}}>
             {  
                 account ? 
                 <>
