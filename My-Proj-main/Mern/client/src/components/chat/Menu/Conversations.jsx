@@ -12,7 +12,7 @@ const Component = styled(Box)`
     overflow: overlay;
 `
 
-const Conversations = () => {
+const Conversations = ({text}) => {
 
     const  [users, setUsers] = useState([]);
 
@@ -21,10 +21,11 @@ const Conversations = () => {
     useEffect(() => {
         const fetchData = async () => {
             let response = await getUsers();
-            setUsers(response)
+            const filteredData = response.filter(user => user.name.toLowerCase().includes(text.toLowerCase()));
+            setUsers(filteredData)
         }
         fetchData();
-    }, []);
+    }, [text]);
 
     const styledDivider = styled(Divider)`
         margin: 0 0 0 70px;
@@ -39,6 +40,7 @@ const Conversations = () => {
                 user.sub !== account.sub &&
                 <>
                 <Conversation  user={user} />
+
                 <styledDivider />
                 </>
             ))
