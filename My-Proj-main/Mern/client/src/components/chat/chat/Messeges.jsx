@@ -23,6 +23,7 @@ const Messeges = ({person, conversation}) => {
     const [messages, setMessages] = useState([]);
     const {account} = useContext(AccountContext);
     const [newMessageFlag, setNewMessageFlag] =  useState(false)
+    const [file, setFile] = useState()
     // const conversations=conversation;
     // let id = conversations._id
     useEffect(() => {
@@ -70,6 +71,8 @@ const Messeges = ({person, conversation}) => {
                 sendText= {sendText}
                 setValue= {setValue}
                 value={value}
+                file={file}
+                setFile={setFile}
             />
         </Wrapper>
 
