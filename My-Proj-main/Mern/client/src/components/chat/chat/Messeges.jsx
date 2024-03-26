@@ -13,13 +13,16 @@ const Component = styled(Box)`
     height: 82vh;
     overflow-y: scroll;
 `
-
+const Container =styled(Box)`
+    padding: 1px 80px;
+`
 
 const Messeges = ({person, conversation}) => {
     
     const [value, setValue] = useState("");
     const [messages, setMessages] = useState([]);
     const {account} = useContext(AccountContext);
+    const [newMessageFlag, setNewMessageFlag] =  useState(false)
     // const conversations=conversation;
     // let id = conversations._id
     useEffect(() => {
@@ -30,7 +33,7 @@ const Messeges = ({person, conversation}) => {
            setMessages(data);
         }
         conversation._id && getMessageDetails();
-    }, [person._id, conversation._id])
+    }, [person._id, conversation._id, newMessageFlag])
 
     const sendText = async (e) => {
         // console.log(e);
@@ -46,6 +49,7 @@ const Messeges = ({person, conversation}) => {
             // console.log(message);
             await newMessage(message)
             setValue("");
+            setNewMessageFlag(prev => !prev)
         }
     }
 
@@ -56,7 +60,9 @@ const Messeges = ({person, conversation}) => {
                 {
 
                     messages && messages.map(message => (
-                        <Message message={message} />
+                        <Container>
+                            <Message message={message} />
+                        </Container>    
                     ))
                 }
             </Component>
